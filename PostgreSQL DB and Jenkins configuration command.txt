@@ -1,0 +1,25 @@
+////////// My local Cmd ///////////
+
+cd C:\Program Files\PostgreSQL\15\bin
+
+pg_ctl start -D "C:\Program Files\PostgreSQL\15\data"
+
+psql -U postgres -d postgres
+
+select * from demo;
+
+
+
+///////// Jenkins Windows batch cmd ////////////
+
+cd "C:\Program Files\PostgreSQL\15\bin"
+
+REM Start PostgreSQL
+pg_ctl start -D "C:\Program Files\PostgreSQL\15\data"
+
+REM Run psql with password file
+set PGPASSFILE=D:\Passkey\pgpass.conf
+psql -h localhost -p 5432 -U postgres -d postgres -w -c "SELECT * FROM demo"
+
+REM Stop PostgreSQL
+pg_ctl stop -D "C:\Program Files\PostgreSQL\15\data"
